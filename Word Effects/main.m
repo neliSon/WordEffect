@@ -16,8 +16,6 @@ int main(int argc, const char * argv[]) {
         NSString *respond;
         NSString *stringToCap, *stringToLower, *canadianize, *despace;
         NSInteger numberize;
-        NSString *question = @"?";
-        NSString *exclamation = @"!";
         
         while (YES) {
             
@@ -71,11 +69,11 @@ int main(int argc, const char * argv[]) {
                     break;
                     
                 case '5':
-                    respond = [inputString substringFromIndex: ([inputString length] - 1)];
-                    if ([respond isEqualToString: question]) {
+                    respond = [inputString substringToIndex: ([inputString length] - 1)];
+                    if ([respond hasSuffix: @"?"]) {
                             NSLog(@"I don't know.");
                     }
-                    if ([respond isEqualToString: exclamation])
+                    if ([respond hasSuffix: @"!"])
                             NSLog(@"Whoa, calm down!");
                     break;
             
